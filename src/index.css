@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line/60;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #060a10;
+  }
+
+  ::selection {
+    background-color: rgba(34, 211, 238, 0.25);
+    color: #e7eef7;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #060a10;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1c2738;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #29384f;
+  }
+
+  :focus-visible {
+    outline: 2px solid #22d3ee;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* Eyebrow / section label styled like a device readout tag */
+  .readout-label {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.28em] text-signal-cyan/80;
+  }
+
+  .readout-label::before {
+    content: '';
+    @apply h-1.5 w-1.5 rounded-full bg-signal-cyan shadow-glow animate-pulse-soft;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-ink tracking-tight;
+  }
+
+  .panel {
+    @apply rounded-2xl border border-line bg-surface/70 backdrop-blur-sm;
+  }
+
+  .panel-elevated {
+    @apply rounded-2xl border border-line bg-surface-elevated/80 backdrop-blur-md;
+  }
+
+  .grid-backdrop {
+    background-image: linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .chip {
+    @apply rounded-full border border-line bg-surface-card px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-ink-muted;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-signal-blue px-6 py-3 font-medium text-white shadow-glow-blue transition-all duration-300 hover:bg-signal-cyan hover:shadow-glow active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-transparent px-6 py-3 font-medium text-ink transition-all duration-300 hover:border-signal-cyan/60 hover:text-signal-cyan active:scale-95;
+  }
+
+  .section-divider {
+    @apply relative h-16 w-full overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
